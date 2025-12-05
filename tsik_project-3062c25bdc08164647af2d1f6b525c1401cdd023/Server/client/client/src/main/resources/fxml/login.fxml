@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="474.0" prefWidth="499.0" spacing="25"
+      styleClass="root" stylesheets="@/css/style.css"
+      xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.study.client.controller.LoginController">
+
+    <padding>
+        <Insets bottom="60" left="60" right="60" top="60"/>
+    </padding>
+
+    <!-- Заголовок -->
+    <Label styleClass="title-label" text="COLLABORATIVE STUDY PLATFORM"/>
+
+    <!-- Логотип -->
+    <ImageView fitHeight="120" fitWidth="120">
+        <image><Image url="@/images/logo.png"/></image>
+    </ImageView>
+
+    <!-- Форма -->
+    <VBox alignment="CENTER" prefWidth="380" spacing="15">
+        <TextField fx:id="usernameField" promptText="Meno používateľa" styleClass="text-field"/>
+        <PasswordField fx:id="passwordField" promptText="Heslo" styleClass="text-field"/>
+
+        <HBox alignment="CENTER" spacing="15">
+            <!-- КНОПКА ВХОДА -->
+            <Button fx:id="loginButton"
+                    styleClass="btn-primary"
+                    text="Prihlásiť sa"
+                    onAction="#onLoginClicked"/>
+
+            <!-- КНОПКА РЕГИСТРАЦИИ -->
+            <Button fx:id="registerButton"
+                    styleClass="btn-primary"
+                    text="Registrovať"
+                    onAction="#onRegisterClicked"/>
+        </HBox>
+
+        <Label fx:id="errorLabel"
+               style="-fx-text-fill: #e74c3c; -fx-font-size: 14;"/>
+    </VBox>
+</VBox>

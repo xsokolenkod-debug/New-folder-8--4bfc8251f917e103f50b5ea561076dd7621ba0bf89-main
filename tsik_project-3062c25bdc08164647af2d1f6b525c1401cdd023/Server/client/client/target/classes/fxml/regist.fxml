@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="20" styleClass="root" stylesheets="@/css/style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.study.client.controller.ProfileController">
+
+    <padding><Insets bottom="50" left="50" right="50" top="50" /></padding>
+
+    <Label prefHeight="32.0" prefWidth="116.0" styleClass="title" text="Môj profil">
+        <font>
+            <Font size="13.0" />
+        </font></Label>
+
+    <VBox prefWidth="400.0" spacing="15">
+        <TextField fx:id="nameField" promptText="Meno" styleClass="text-field" />
+        <TextField fx:id="emailField" promptText="Email" styleClass="text-field" />
+        <PasswordField fx:id="passwordField" promptText="Nové heslo" styleClass="text-field" />
+        <PasswordField fx:id="confirmPasswordField" promptText="Potvrdiť heslo" styleClass="text-field" />
+        <HBox />
+    </VBox>
+
+    <Button alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="0.0" prefWidth="146.0" styleClass="btn-primary" text="Zaregistrovat' sa" textAlignment="CENTER" />
+</VBox>

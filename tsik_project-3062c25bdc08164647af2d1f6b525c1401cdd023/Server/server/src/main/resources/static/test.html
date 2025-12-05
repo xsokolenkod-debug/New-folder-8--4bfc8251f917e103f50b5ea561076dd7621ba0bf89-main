@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+</head>
+<body>
+<h2>WebSocket Test</h2>
+<pre id="log"></pre>
+
+<script>
+    const socket = new SockJS('/api/ws');
+    const stompClient = Stomp.over(socket);
+
+    stompClient.connect({}, frame => {
+        document.getElementById('log').innerText += '✅ Connected: ' + frame + '\n';
+
+        // Подписываемся на личные уведомления пользователя с ID=5
+        stompClient.subscribe('/user/5/notifications', msg => {
+            document.getElementById('log').innerText += '📩 ' + msg.body + '\n';
+        });
+    });
+</script>
+</body>
+</html>

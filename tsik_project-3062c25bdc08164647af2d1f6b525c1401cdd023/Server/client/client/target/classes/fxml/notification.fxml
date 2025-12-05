@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox alignment="TOP_CENTER" prefHeight="532.0" prefWidth="656.0" spacing="20" styleClass="root" stylesheets="@/css/style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.study.client.controller.TasksController">
+
+    <!-- OPEN -->
+    <VBox prefHeight="520.0" prefWidth="255.0" spacing="10" styleClass="card">
+        <Label styleClass="title" text="Status Uloh:" />
+        <ListView fx:id="openTasksList" prefHeight="458.0" prefWidth="176.0" />
+    </VBox>
+
+    <!-- IN_PROGRESS -->
+    <VBox prefHeight="532.0" prefWidth="247.0" spacing="10" styleClass="card">
+        <Label styleClass="title" text="Chat:" />
+        <ListView fx:id="inProgressTasksList" prefHeight="501.0" prefWidth="168.0" />
+    </VBox>
+
+    <!-- DONE -->
+    <VBox prefHeight="532.0" prefWidth="259.0" spacing="10" styleClass="card">
+        <Label styleClass="title" text="Spravy:" />
+        <ListView fx:id="doneTasksList" prefHeight="537.0" prefWidth="180.0" />
+    </VBox>
+</HBox>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<TitledPane expanded="true" prefHeight="679.0" prefWidth="569.0" styleClass="card" stylesheets="@/css/style.css" text="Skupina: " xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+
+    <GridPane hgap="20" styleClass="card" vgap="15">
+
+        <!-- Участники -->
+        <Label styleClass="title" text="Členovia tímu:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <ListView fx:id="membersList" prefHeight="169.0" prefWidth="217.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+
+        <!-- Чат -->
+        <Label styleClass="title" text="Skupinový chat:" GridPane.rowIndex="4" />
+        <ListView fx:id="chatList" prefHeight="193.0" prefWidth="335.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+        <TextField prefHeight="41.0" prefWidth="227.0" promptText="Napísať správu..." styleClass="text-field" GridPane.rowIndex="6" />
+        <Button prefHeight="44.0" prefWidth="246.0" styleClass="btn-primary" text="Odoslať" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+
+        <!-- Материалы -->
+        <Label styleClass="title" text="Zdieľané materiály:" GridPane.columnIndex="3" GridPane.columnSpan="2" />
+        <ListView fx:id="resourcesList" prefHeight="150.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+        <Button prefHeight="49.0" prefWidth="229.0" styleClass="btn-success" text="Pridať materiál" textFill="#883333" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+      <Button layoutX="298.0" layoutY="317.0" prefHeight="41.0" prefWidth="217.0" styleClass="btn-primary" text="Pridať člena" GridPane.rowIndex="2" />
+      <ListView prefHeight="193.0" prefWidth="315.0" GridPane.rowIndex="5" />
+
+        <columnConstraints>
+            <ColumnConstraints maxWidth="217.33333333333334" minWidth="217.33333333333334" prefWidth="217.33333333333334" />
+            <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+         <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+         <ColumnConstraints maxWidth="218.33333333333331" minWidth="218.33333333333331" prefWidth="218.33333333333331" />
+         <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
+    </GridPane>
+</TitledPane>

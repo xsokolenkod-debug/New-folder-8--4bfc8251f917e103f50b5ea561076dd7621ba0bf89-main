@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>WebSocket Full Test</title>
+</head>
+
+<body>
+  <h1>WebSocket Full Test</h1>
+
+  <button onclick="sendChat()">Отправить сообщение в чат</button>
+  <button onclick="updateTask()">Обновить статус задачи</button>
+  <button onclick="memberJoin()">Вход участника</button>
+  <button onclick="memberLeave()">Выход участника</button>
+  <button onclick="sendPersonalNotification()">Личное уведомление</button>
+
+  <script>
+    function sendChat() {
+      const message = { userId: 1, username: "Anna", content: "Привет из браузера!" };
+      fetch("http://localhost:8080/api/notifications/group/1/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(message)
+      }).then(r => r.text()).then(console.log).catch(console.error);
+    }
+
+    function updateTask() {
+      const message = { groupId: 1, content: "Статус задачи изменён", type: "TASK_UPDATED" };
+      fetch("http://localhost:8080/api/notifications/group/1/tasks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(message)
+      }).then(r => r.text()).then(console.log).catch(console.error);
+    }
+
+    function memberJoin() {
+      const message = { userId: 2, username: "Bob", content: "вошёл в группу" };
+      fetch("http://localhost:8080/api/notifications/group/1/members", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(message)
+      }).then(r => r.text()).then(console.log).catch(console.error);
+    }
+
+    function memberLeave() {
+      const message = { userId: 2, username: "Bob", content: "вышел из группы" };
+      fetch("http://localhost:8080/api/notifications/group/1/members", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(message)
+      }).then(r => r.text()).then(console.log).catch(console.error);
+    }
+
+    function sendPersonalNotification() {
+      const message = { userId: 1, username: "Anna", content: "Напоминание о дедлайне!" };
+      fetch("http://localhost:8080/api/notifications/user/1/notifications", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(message)
+      }).then(r => r.text()).then(console.log).catch(console.error);
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.6.1/dist/sockjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+
+  <script>
+    const socket = new SockJS('http://localhost:8080/api/ws');
+    const stompClient = Stomp.over(socket);
+    stompClient.debug = console.log;
+
+    stompClient.connect({}, function (frame) {
+      console.log('Connected: ' + frame);
+
+      stompClient.subscribe('/topic/group/1/chat', msg => console.log('Chat:', msg.body));
+      stompClient.subscribe('/topic/group/1/tasks', msg => console.log('Tasks:', msg.body));
+      stompClient.subscribe('/topic/group/1/members', msg => console.log('Members:', msg.body));
+      stompClient.subscribe('/user/1/notifications', msg => console.log('Personal:', msg.body));
+    }, function (error) {
+      console.error('STOMP error', error);
+    });
+  </script>
+</body>
+
+</html>

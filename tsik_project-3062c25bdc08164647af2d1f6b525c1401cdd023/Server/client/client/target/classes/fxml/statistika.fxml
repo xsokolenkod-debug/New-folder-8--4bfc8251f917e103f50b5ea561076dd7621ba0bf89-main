@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox alignment="TOP_CENTER" spacing="20" styleClass="root" stylesheets="@/css/style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.study.client.controller.TasksController">
+
+    <!-- IN_PROGRESS -->
+    <VBox prefHeight="473.0" prefWidth="353.0" spacing="10" styleClass="card">
+        <Label styleClass="title" text="Aktivnost':" />
+        <ListView fx:id="inProgressTasksList" prefHeight="400" />
+    </VBox>
+
+    <!-- DONE -->
+    <VBox prefHeight="473.0" prefWidth="402.0" spacing="10" styleClass="card">
+        <Label styleClass="title" text="Splnenie uloh:" />
+        <ListView fx:id="doneTasksList" prefHeight="400" prefWidth="62.0" />
+    </VBox>
+</HBox>

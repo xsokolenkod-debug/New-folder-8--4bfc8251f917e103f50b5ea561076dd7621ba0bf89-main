@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.study.client.controller.TasksController"
+      stylesheets="@/css/style.css"
+      spacing="20" styleClass="root"
+      alignment="TOP_CENTER" >
+
+    <!-- OPEN -->
+    <VBox spacing="10" styleClass="card" prefWidth="250">
+        <Label text="OPEN" styleClass="title"/>
+        <ListView fx:id="openTasksList" prefHeight="400" />
+        <Button text="Pridať úlohu" styleClass="btn-success"/>
+    </VBox>
+
+    <!-- IN_PROGRESS -->
+    <VBox spacing="10" styleClass="card" prefWidth="250">
+        <Label text="IN_PROGRESS" styleClass="title"/>
+        <ListView fx:id="inProgressTasksList" prefHeight="400" />
+    </VBox>
+
+    <!-- DONE -->
+    <VBox spacing="10" styleClass="card" prefWidth="250">
+        <Label text="DONE" styleClass="title"/>
+        <ListView fx:id="doneTasksList" prefHeight="400" />
+    </VBox>
+</HBox>
